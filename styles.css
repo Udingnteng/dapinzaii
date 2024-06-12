@@ -1,0 +1,323 @@
+/* Import Font Awesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* General Style */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #ece9e6, #ffffff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Chat Container */
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: popIn 0.5s ease;
+}
+
+/* Animation: Pop In */
+@keyframes popIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Banner */
+#banner {
+    width: 100%;
+    background: linear-gradient(135deg, #007BFF, #00d4ff);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    animation: slideInFromTop 0.5s ease;
+}
+
+/* Animation: Slide In From Top */
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Chatbox */
+#chatbox {
+    width: 100%;
+    height: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #f9f9f9;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Scrollbar Style */
+#chatbox::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chatbox::-webkit-scrollbar-thumb {
+    background: #007BFF;
+    border-radius: 4px;
+}
+
+/* Input Container */
+#inputContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-top: 1px solid #ddd;
+    background: #f1f1f1;
+    animation: slideInFromBottom 0.5s ease;
+}
+
+/* Animation: Slide In From Bottom */
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* User Logo */
+#userLogo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    animation: popInLogo 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #007BFF;
+    color: #fff;
+}
+
+/* Animation: Pop In Logo */
+@keyframes popInLogo {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Input Box */
+#questionTypeBox {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background: #fff;
+    font-size: 16px;
+}
+
+#questionTypeBox:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+/* Send Button */
+#sendButton {
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sendButton:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#sendButton:active {
+    transform: scale(0.95);
+}
+
+/* Send Icon */
+#sendButton i {
+    margin-left: 5px;
+    transition: transform 0.2s;
+}
+
+#sendButton:hover i {
+    transform: translateX(3px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Message Style */
+.user-message, .bot-message {
+    max-width: 75%;
+    padding: 15px 20px;
+    border-radius: 20px;
+    margin: 5px 0;
+    animation: fadeIn 0.5s ease;
+    word-wrap: break-word;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Message Icons */
+.user-message i, .bot-message i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+/* User Message */
+.user-message {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #5bc0de, #007BFF); /* Variasi warna untuk pesan pengguna */
+}
+
+/* Bot Message */
+.bot-message {
+    align-self: flex-start;
+    background: linear-gradient(135deg, #f7b924, #ffc107); /* Variasi warna untuk pesan AI */
+}
+
+/* AI Usage Indicator */
+.ai-indicator {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #007BFF; /* Warna indikator pemakaian AI */
+}
+
+/* Bot Message with Image */
+.bot-message.image-message::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -40px; /* Adjust as needed */
+    width: 50px;
+    height: 50px;
+    background-image: url('images/DafinAI.png'); /* Change to your bot avatar image */
+    background-size: cover;
+    border-radius: 50%;
+    animation: botAvatarAnim 0.5s ease; /* Add animation here */
+}
+
+@keyframes botAvatarAnim {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.bot-message.image-message::after {
+    content: 'DafinAI'; /* Bot name */
+    position: absolute;
+    top: -30px;
+    left: 10px; /* Adjust as needed */
+    font-size: 12px;
+    color: #777;
+}
+
+/* Animation: Bot Message */
+@keyframes botMessageAnim {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation: Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #chat-container {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+    #chatbox {
+        height: calc(100vh - 160px); /* Adjust based on the header/footer height */
+        overflow-y: scroll; /* Add overflow-y to enable scrolling on smaller screens */
+    }
+    #inputContainer {
+        padding: 10px 15px;
+        flex-direction: column; /* Change flex direction to column for better layout on smaller screens */
+        align-items: stretch; /* Stretch items to fill the width */
+    }
+    #questionTypeBox {
+        margin-bottom: 10px; /* Add margin bottom for spacing between input and button */
+    }
+    #sendButton {
+        margin-left: 0; /* Reset margin left */
+    }
+    #sendButton,
+    #questionTypeBox {
+        width: 100%; /* Make input and button fill the width */
+    }
+    #sendButton i {
+        margin-left: 0; /* Reset margin left */
+    }
+}
