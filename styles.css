@@ -5,8 +5,8 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #ece9e6, #ffffff);
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #f5f7fa, #e2e7f0); /* Gradient yang lebih dinamis */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,7 +44,7 @@ body {
 /* Banner */
 #banner {
     width: 100%;
-    background: linear-gradient(135deg, #007BFF, #00d4ff);
+    background: linear-gradient(135deg, #f44336, #ff5722); /* Gradient yang lebih menarik */
     color: #fff;
     text-align: center;
     padding: 20px 0;
@@ -81,15 +81,17 @@ body {
 }
 
 #chatbox::-webkit-scrollbar-thumb {
-    background: #007BFF;
+    background: #4caf50; /* Warna scrollbar hijau */
     border-radius: 4px;
 }
 
 /* Input Container */
 #inputContainer {
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
+    gap: 10px;
     padding: 15px 20px;
     border-top: 1px solid #ddd;
     background: #f1f1f1;
@@ -111,12 +113,11 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    margin-right: 10px;
     animation: popInLogo 0.5s ease;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #007BFF;
+    background: #ff4081; /* Warna yang lebih menarik */
     color: #fff;
 }
 
@@ -143,18 +144,17 @@ body {
 }
 
 #questionTypeBox:focus {
-    border-color: #007BFF;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+    border-color: #f44336; /* Warna outline saat fokus */
+    box-shadow: 0 0 8px rgba(244, 67, 54, 0.5); /* Shadow yang lebih modern */
 }
 
 /* Send Button */
 #sendButton {
-    background: #007BFF;
+    background: #ff5722; /* Warna send button */
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
-    margin-left: 10px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
     display: flex;
@@ -163,7 +163,7 @@ body {
 }
 
 #sendButton:hover {
-    background-color: #0056b3;
+    background-color: #e64a19; /* Warna hover yang lebih soft */
     transform: scale(1.05);
 }
 
@@ -213,13 +213,13 @@ footer {
 /* User Message */
 .user-message {
     align-self: flex-end;
-    background: linear-gradient(135deg, #5bc0de, #007BFF); /* Variasi warna untuk pesan pengguna */
+    background: linear-gradient(135deg, #81c784, #4caf50); /* Variasi warna untuk pesan pengguna */
 }
 
 /* Bot Message */
 .bot-message {
     align-self: flex-start;
-    background: linear-gradient(135deg, #f7b924, #ffc107); /* Variasi warna untuk pesan AI */
+    background: linear-gradient(135deg, #ff4081, #e91e63); /* Variasi warna untuk pesan AI */
 }
 
 /* AI Usage Indicator */
@@ -230,94 +230,116 @@ footer {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #007BFF; /* Warna indikator pemakaian AI */
+    background-color: #ff4081; /* Warna indikator pemakaian AI yang lebih modern */
 }
 
-/* Bot Message with Image */
-.bot-message.image-message::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: -40px; /* Adjust as needed */
-    width: 50px;
-    height: 50px;
-    background-image: url('images/DafinAI.png'); /* Change to your bot avatar image */
-    background-size: cover;
-    border-radius: 50%;
-    animation: botAvatarAnim 0.5s ease; /* Add animation here */
-}
-
-@keyframes botAvatarAnim {
-    from {
-        opacity: 0;
-        transform: scale(0);
+/* Bot Message Avatar Positioning for Mobile */
+@media (max-width: 768px) {
+    .bot-message.image-message::before {
+        left: 5px; /* Sesuaikan posisi kiri sesuai desain */
+        top: -30px; /* Sesuaikan posisi atas sesuai desain */
+        width: 40px; /* Sesuaikan ukuran avatar */
+        height: 40px; /* Sesuaikan ukuran avatar */
     }
-    to {
-        opacity: 1;
-        transform: scale(1);
+
+    .bot-message.image-message::after {
+        left: 55px; /* Sesuaikan posisi kiri untuk teks */
+        top: -30px; /* Sesuaikan posisi atas untuk teks */
     }
 }
 
-.bot-message.image-message::after {
-    content: 'DafinAI'; /* Bot name */
-    position: absolute;
-    top: -30px;
-    left: 10px; /* Adjust as needed */
-    font-size: 12px;
+/* Animasi Instagram dan Discord */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
     color: #777;
 }
 
-/* Animation: Bot Message */
-@keyframes botMessageAnim {
-    from {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+footer p {
+    margin-bottom: 10px;
 }
 
-/* Animation: Fade In */
-@keyframes fadeIn {
-    from {
+footer a {
+    color: #4fc3f7;
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+    position: relative; /* Untuk menggunakan absolute position pada anak-anak */
+    display: inline-block;
+    overflow: hidden; /* Penting untuk animasi */
+    transition: color 0.3s ease-in-out; /* Transisi warna */
+}
+
+footer a::before,
+footer a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #4fc3f7;
+    z-index: -1; /* Mengatur z-index agar berada di belakang */
+    transition: transform 0.3s ease-in-out;
+}
+
+footer a::before {
+    top: 0;
+    left: 0;
+    transform: translate(-110%, -110%);
+}
+
+footer a::after {
+    bottom: 0;
+    right: 0;
+    transform: translate(110%, 110%);
+}
+
+footer a:hover::before {
+    transform: translate(0, 0);
+}
+
+footer a:hover::after {
+    transform: translate(0, 0);
+}
+
+footer a:hover {
+    color: transparent; /* Hilangkan warna teks saat animasi aktif */
+}
+
+/* Animasi Typing */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #2196f3; /* Warna biru untuk animasi typing */
+    border-radius: 50%;
+    margin-right: 4px;
+    animation: typing 0.8s infinite;
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.8); /* Shadow yang modern */
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0% {
         opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    #chat-container {
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
+    50% {
+        opacity: 1;
     }
-    #chatbox {
-        height: calc(100vh - 160px); /* Adjust based on the header/footer height */
-        overflow-y: scroll; /* Add overflow-y to enable scrolling on smaller screens */
-    }
-    #inputContainer {
-        padding: 10px 15px;
-        flex-direction: column; /* Change flex direction to column for better layout on smaller screens */
-        align-items: stretch; /* Stretch items to fill the width */
-    }
-    #questionTypeBox {
-        margin-bottom: 10px; /* Add margin bottom for spacing between input and button */
-    }
-    #sendButton {
-        margin-left: 0; /* Reset margin left */
-    }
-    #sendButton,
-    #questionTypeBox {
-        width: 100%; /* Make input and button fill the width */
-    }
-    #sendButton i {
-        margin-left: 0; /* Reset margin left */
+    100% {
+        opacity: 0;
+        transform: translateY(-6px);
     }
 }
