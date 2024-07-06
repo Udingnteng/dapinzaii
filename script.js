@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const loadingMessage = document.createElement('div');
             loadingMessage.className = 'bot-message message';
-            loadingMessage.textContent = "Dafin AI: Loading...";
+            loadingMessage.textContent = "QuestChat AI: Loading...";
             chatbox.appendChild(loadingMessage);
             chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom 
             await fetchAnswerFromAPI(userMessage);
@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const loadingMessage = chatbox.querySelector('.bot-message.message:last-child');
             if (loadingMessage) {
-                loadingMessage.textContent = `Dafin AI: ${answer}`;
+                loadingMessage.textContent = `QuestChat AI: ${answer}`;
             } else {
-                addMessage(`Dafin AI: ${answer}`, 'bot');
+                addMessage(`QuestChat AI: ${answer}`, 'bot');
             }
 
             chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom
