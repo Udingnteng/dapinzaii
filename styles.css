@@ -234,12 +234,12 @@ footer {
 }
 
 /* Bot Message Avatar Positioning for Mobile */
-@media (max-width: 768px) {
+@media (max-width: 720px) {
     .bot-message.image-message::before {
-        left: 5px; /* Sesuaikan posisi kiri sesuai desain */
-        top: -30px; /* Sesuaikan posisi atas sesuai desain */
-        width: 40px; /* Sesuaikan ukuran avatar */
-        height: 40px; /* Sesuaikan ukuran avatar */
+        left: 10px; /* Sesuaikan posisi kiri sesuai desain */
+        top: -15px; /* Sesuaikan posisi atas sesuai desain */
+        width: 50px; /* Sesuaikan ukuran avatar */
+        height: 50px; /* Sesuaikan ukuran avatar */
     }
 
     .bot-message.image-message::after {
